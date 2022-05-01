@@ -2,7 +2,7 @@
   <div class="hello">
     <el-container>
       <el-header>
-        <div class="header_title">ShowDoc</div>
+        <div class="header_title">系统管理</div>
         <router-link class="goback" to="/item/index">{{
           $t('goback')
         }}</router-link>
@@ -37,7 +37,7 @@
               <i class="el-icon-tickets"></i>
               <span slot="title">{{ $t('web_setting') }}</span>
             </el-menu-item>
-            <el-menu-item index="6" v-show="lang == 'zh-cn'">
+            <el-menu-item index="6" v-show="lang === 'zh-cn'">
               <i class="el-icon-tickets"></i>
               <span slot="title"
                 ><el-badge :value="isUpdate ? 'new' : ''"
@@ -141,7 +141,8 @@ export default {
     return {
       open_menu_index: 1,
       isUpdate: false,
-      lang: ''
+      lang: '',
+      isAdmin: false
     }
   },
   components: {
@@ -167,11 +168,24 @@ export default {
       })
     }
   },
+  user_info() {
+    let that = this
+    this.get_user_info(function(response) {
+      if (response.data.error_code === 0) {
+        if (response.data.data.groupid === 1) {
+          that.isAdmin = true
+        }
+      }
+    })
+  },
   mounted() {
     // 只对中文版进行更新检查
     this.lang = DocConfig.lang
     this.checkUpadte()
     this.unset_bg_grey()
+    if (this.isAdmin === false) {
+      this.$router.push({ path: '/user/login' })
+    }
   },
   beforeDestroy() {
     this.$message.closeAll()

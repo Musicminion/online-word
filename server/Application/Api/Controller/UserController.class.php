@@ -112,7 +112,7 @@ class UserController extends BaseController
         $password = I("password");
         $v_code = strtolower(I("v_code"));
         if (!$password) {
-            $this->sendError(10206, "no empty password");
+            $this->sendError(10206, "Please Input Password");
             return;
         }
         //检查用户输错密码的次数。如果超过一定次数，则需要验证 验证码
@@ -122,10 +122,6 @@ class UserController extends BaseController
                 $this->sendError(10206, L('verification_code_are_incorrect'));
                 return;
             }
-//            if ($v_code && $v_code != session('v_code')) {
-//                $this->sendError(10206, L('verification_code_are_incorrect'));
-//                return;
-//            }
         }
         session('v_code', null);
 
@@ -140,6 +136,9 @@ class UserController extends BaseController
             $ret = D("User")->checkLdapLogin($username, $password);
         }
         if ($ret) {
+            // 登录成功！直接清0
+            D("VerifyCode")->_zero_times($key);
+
             //获取后台的语言设置
             //这是个历史包袱。因为安装的时候语言设置没有写到API模块的配置下，所以只能读文件读取Home模快的配置文件
             $config = file_get_contents("./Application/Home/Conf/config.php");

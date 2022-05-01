@@ -10,9 +10,9 @@
         <div class="logo">
           <a href="/" style="display:flex; align-items:center">
             <img style="width: 30%" src="static/imgs/sjtu.png" />
-            <span style="color: #df1d59; font-size: 20px;  font-family: 'SimSun';"
+            <span style="color: #df1d59; font-size: 28px;  font-family: 'KaiTi';"
             >
-              在线协同文档
+              在线文档服务
             </span>
           </a>
         </div>

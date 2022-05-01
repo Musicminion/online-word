@@ -22,6 +22,15 @@ class VerifyCodeModel
         return $ret;
     }
 
+    //次数回0
+    public function _zero_times($key)
+    {
+        // 初始化缓存
+        S(array('type' => 'File', 'prefix' => 'think453434d', 'expire' => 60 * 60 * 24));
+        $ret = S($key, 0, 24 * 60 * 60);
+        return $ret;
+    }
+
     public function _check_times($key, $max_times = 5)
     {
         // 初始化缓存

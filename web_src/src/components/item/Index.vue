@@ -1,13 +1,13 @@
 <template>
-  <div class="hello" style="width: 100%">
+  <div class="hello" style="width: 100%; min-height: 100vh; height: auto; background: linear-gradient(45deg, #c8f1ee, #f1e5f1);">
     <Header></Header>
 
-    <div class="header" style="background: #fff5f5;opacity: 0.95">
+    <div class="Itemheader">
       <div class="header-wrap">
         <div class="logo">
           <a href="/" style="display:flex; align-items:center">
-            <img style="width: 10%" src="static/imgs/sjtu.png" />
-            <span style="color: #df1d59; font-size: 20px;  font-family: 'SimSun';"
+            <img class="SJTU-loginLogoIMG" src="static/imgs/sjtu.png"/>
+            <span class="loginText"
             >
               在线协同文档
             </span>
@@ -23,61 +23,61 @@
       <el-row class="masthead">
         <div class="logo-title">
           <h2 class="muted">
-<!--            <img-->
-<!--              src="static/logo/b_64.png"-->
-<!--              style="width:50px;height:50px;margin-bottom:-10px;"-->
-<!--              alt-->
-<!--            />-->
-            我的项目
+            <img
+              src="static/logo/sjtu.png"
+              style="width:50px;height:50px;margin-bottom:-10px;"
+              alt
+            />
+            你好，{{ username }}！
           </h2>
         </div>
         <div class="header-btn-group pull-right">
-          <el-tooltip
-            class="item"
-            effect="dark"
-            :content="$t('feedback')"
-            placement="top"
-          >
-            <router-link to>
-              <i @click="feedback" class="el-icon-phone-outline"></i>
-            </router-link>
-          </el-tooltip>
+<!--          <el-tooltip-->
+<!--            class="item"-->
+<!--            effect="dark"-->
+<!--            :content="$t('feedback')"-->
+<!--            placement="top"-->
+<!--          >-->
+<!--            <router-link to>-->
+<!--              <i @click="feedback" class="el-icon-phone-outline"></i>-->
+<!--            </router-link>-->
+<!--          </el-tooltip>-->
 
-          <el-tooltip
-            v-if="lang == 'zh-cn'"
-            class="item"
-            effect="dark"
-            content="客户端"
-            placement="top"
-          >
-            <a target="_blank" href="https://www.showdoc.cc/clients">
-              <i class="el-icon-mobile-phone"></i>
-            </a>
-          </el-tooltip>
+<!--          <el-tooltip-->
+<!--            v-if="lang == 'zh-cn'"-->
+<!--            class="item"-->
+<!--            effect="dark"-->
+<!--            content="客户端"-->
+<!--            placement="top"-->
+<!--          >-->
+<!--            <a target="_blank" href="https://www.showdoc.cc/clients">-->
+<!--              <i class="el-icon-mobile-phone"></i>-->
+<!--            </a>-->
+<!--          </el-tooltip>-->
 
-          <el-tooltip
-            v-if="lang == 'zh-cn'"
-            class="item"
-            effect="dark"
-            content="接口开发调试工具RunApi"
-            placement="top"
-          >
-            <a target="_blank" href="https://www.showdoc.cc/runapi">
-              <i class="el-icon-connection"></i>
-            </a>
-          </el-tooltip>
+<!--          <el-tooltip-->
+<!--            v-if="lang == 'zh-cn'"-->
+<!--            class="item"-->
+<!--            effect="dark"-->
+<!--            content="接口开发调试工具RunApi"-->
+<!--            placement="top"-->
+<!--          >-->
+<!--            <a target="_blank" href="https://www.showdoc.cc/runapi">-->
+<!--              <i class="el-icon-connection"></i>-->
+<!--            </a>-->
+<!--          </el-tooltip>-->
 
-          <el-tooltip
-            v-if="lang == 'zh-cn'"
-            class="item"
-            effect="dark"
-            content="showdoc推送服务"
-            placement="top"
-          >
-            <a target="_blank" href="https://push.showdoc.com.cn">
-              <i class="el-icon-s-promotion"></i>
-            </a>
-          </el-tooltip>
+<!--          <el-tooltip-->
+<!--            v-if="lang == 'zh-cn'"-->
+<!--            class="item"-->
+<!--            effect="dark"-->
+<!--            content="showdoc推送服务"-->
+<!--            placement="top"-->
+<!--          >-->
+<!--            <a target="_blank" href="https://push.showdoc.com.cn">-->
+<!--              <i class="el-icon-s-promotion"></i>-->
+<!--            </a>-->
+<!--          </el-tooltip>-->
 
           <el-tooltip
             class="item"
@@ -393,6 +393,58 @@ a {
 .group-bar .el-radio-button__inner {
   border-radius: 30px !important;
   margin-right: 5px;
+}
+
+/*-------------------下面是移动端适配的代码----------------------*/
+.Itemheader{
+  background: linear-gradient(
+    to left top,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.8)
+  );
+  position: relative;
+  border-radius: 1.3vh;
+  box-shadow: 6px 8px 10px 8px rgba(122, 122, 122, 0.212);
+
+
+  top: 0.8vh;
+  left: 0.5vw;
+
+
+
+  margin: 0;
+  width: 99vw;
+  height: fit-content;
+  opacity: 0.75;
+  z-index: 10;
+}
+
+
+.loginText{
+  color: #df1d59;
+  font-size: 20px;
+  font-family: KaiTi,fangsong;
+}
+
+.SJTU-loginLogoIMG{
+  width: 10%;
+}
+
+@media only screen and (max-width: 500px) {
+  .loginText{
+    font-size: 25px;
+  }
+
+  .SJTU-loginLogoIMG{
+    width: 40%;
+  }
+
+  .header{
+    height: 10vh;
+    /*position: fixed;*/
+    display:flex;
+    align-items:center;
+  }
 }
 </style>
 

@@ -5,12 +5,12 @@
   >
     <Header></Header>
 
-    <div class="header" style="background: #eaf2ff;opacity: 0.95">
+    <div class="header" style="background: #eaf2ff;opacity: 0.85">
       <div class="header-wrap">
         <div class="logo">
           <a href="/" style="display:flex; align-items:center">
-            <img style="width: 10%" src="static/imgs/sjtu.png" />
-            <span style="color: #df1d59; font-size: 20px;  font-family: 'SimSun';"
+            <img class="SJTU-loginLogoIMG" src="static/imgs/sjtu.png"/>
+            <span class="loginText"
             >
               在线协同文档
             </span>
@@ -223,4 +223,34 @@ export default {
 .v_code_img {
   margin-top: 20px;
 }
+
+/*-------------------下面是移动端适配的代码----------------------*/
+
+.loginText{
+  color: #df1d59;
+  font-size: 30px;
+  font-family: KaiTi,fangsong;
+}
+
+.SJTU-loginLogoIMG{
+  width: 20%;
+}
+
+@media only screen and (max-width: 500px) {
+  .loginText{
+    font-size: 25px;
+  }
+
+  .SJTU-loginLogoIMG{
+    width: 40%;
+  }
+
+  .header{
+    height: 10vh;
+    /*position: fixed;*/
+    display:flex;
+    align-items:center;
+  }
+}
+
 </style>

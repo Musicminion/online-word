@@ -238,6 +238,7 @@ export default {
 .tips {
   color: #777;
 }
+
 </style>
 
 <!-- 全局css -->
@@ -250,4 +251,7 @@ export default {
   line-height: 30px !important;
   margin-top: 20px;
 }
+
+
+
 </style>
