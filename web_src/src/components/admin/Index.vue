@@ -168,24 +168,11 @@ export default {
       })
     }
   },
-  user_info() {
-    let that = this
-    this.get_user_info(function(response) {
-      if (response.data.error_code === 0) {
-        if (response.data.data.groupid === 1) {
-          that.isAdmin = true
-        }
-      }
-    })
-  },
   mounted() {
     // 只对中文版进行更新检查
     this.lang = DocConfig.lang
     this.checkUpadte()
     this.unset_bg_grey()
-    if (this.isAdmin === false) {
-      this.$router.push({ path: '/user/login' })
-    }
   },
   beforeDestroy() {
     this.$message.closeAll()
