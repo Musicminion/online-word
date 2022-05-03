@@ -131,7 +131,7 @@ export default {
           flowChart: true, // 默认不解析
           sequenceDiagram: true, // 默认不解析
           syncScrolling: 'single',
-          htmlDecode: 'style,script,iframe|on',
+          htmlDecode: true,
           imageUpload: true,
           imageFormats: [
             'jpg',

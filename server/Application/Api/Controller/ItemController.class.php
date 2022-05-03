@@ -619,7 +619,7 @@ class ItemController extends BaseController
                     "page_title" => $item_name,
                     "item_id" => $item_id,
                     "cat_id" => 0,
-                    "page_content" => '欢迎使用showdoc。点击右上方的编辑按钮进行编辑吧！',
+                    "page_content" => '欢迎使用在线文档！',
                     "addtime" => time()
                 );
                 $page_id = D("Page")->add($insert);

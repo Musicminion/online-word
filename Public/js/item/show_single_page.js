@@ -2,7 +2,7 @@ $(function() {
   hljs.initHighlightingOnLoad();
 
   var EditormdView = editormd.markdownToHTML("page_md_content", {
-    htmlDecode: "style,script,iframe", // you can filter tags decode
+    // htmlDecode: "style,script,iframe", // you can filter tags decode
     emoji: true,
     taskList: true,
     tex: true, // 默认不解析
